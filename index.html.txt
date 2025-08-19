@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Pablo Iriondo - CV</title>
+    <!-- Carga Tailwind CSS para los estilos -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configura la fuente Inter para un estilo moderno -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+      body {
+          font-family: 'Inter', sans-serif;
+      }
+    </style>
+    <!-- Carga las librerías de React y Babel para que la app funcione -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-slate-900 min-h-screen text-white font-sans flex flex-col items-center p-4 md:p-8">
+
+    <div id="root"></div>
+
+    <script type="text/babel">
+        // Componente para las secciones del CV
+        const CvSection = ({ title, children }) => {
+            return (
+                <div className="bg-slate-800 p-6 rounded-xl shadow-lg mt-8 w-full">
+                    <div className="flex items-center text-blue-400 mb-4">
+                        <h2 className="text-2xl font-bold text-white ml-2">{title}</h2>
+                    </div>
+                    <div className="text-gray-400 space-y-4">
+                        {children}
+                    </div>
+                </div>
+            );
+        };
+
+        // Componente para los items individuales del CV (experiencia, formación)
+        const CvItem = ({ date, title, subtitle, description }) => {
+            return (
+                <div>
+                    <h4 className="text-lg font-semibold text-white">{title}</h4>
+                    <p className="text-gray-400 italic">{subtitle}</p>
+                    <p className="text-gray-500 text-sm mt-1">{date}</p>
+                    {description && <p className="text-gray-300 mt-2">{description}</p>}
+                </div>
+            );
+        };
+
+        // Componente para la información de contacto
+        const ContactInfo = ({ email, phone }) => {
+            return (
+                <div className="text-gray-400 mt-4 flex justify-center space-x-6">
+                    <div className="flex items-center space-x-2">
+                        <span>{email}</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                        <span>{phone}</span>
+                    </div>
+                </div>
+            );
+        };
+
+        // Componente principal de la aplicación
+        const App = () => {
+            return (
+                <div className="bg-slate-900 min-h-screen text-white font-sans flex flex-col items-center p-4 md:p-8">
+                    {/* Header Section */}
+                    <header className="text-center mb-12 flex flex-col items-center max-w-4xl w-full">
+                        <h1 className="text-4xl md:text-5xl font-extrabold text-blue-400 mb-4">
+                            Pedro Pablo Iriondo
+                        </h1>
+                        <p className="text-lg md:text-xl text-gray-300 max-w-4xl mx-auto text-justify">
+                            Profesional de la educación con más de 14 años de experiencia en puestos docentes y de administración en España y Estados Unidos. Posee tres especialidades de magisterio (Educación Física, Primaria y Lengua Extranjera), un MBA con premio al mejor expediente, y un nivel de inglés perfectamente bilingüe.
+                        </p>
+                        <ContactInfo email="pedropablo.iriondo@gmail.com" phone="607037287" />
+                    </header>
+
+                    {/* CV Content Section */}
+                    <div className="w-full max-w-4xl space-y-8">
+                        <CvSection title="Experiencia">
+                            <CvItem
+                                date="AGOSTO 2021 - JULIO 2025"
+                                title="JEFE DEL DEPARTAMENTO DE CIENCIAS, PROFESOR DE CIENCIAS Y DE STEM"
+                                subtitle="WEST GATE ELEM. / PALM BEACH SCHOOL DISTRICT"
+                                description="Estuve a cargo del departamento de Ciencias y del laboratorio STEM en mi colegio de destino como parte del equipo directivo. Además, formé parte del Equipo de Liderazgo en Ciencias del Distrito. Como maestro, fui evaluado como 'Highly effective teacher' los cuatro años."
+                            />
+                            <CvItem
+                                date="SEPTIEMBRE 2020 - JULIO 2021"
+                                title="PROFESOR DE INGLÉS"
+                                subtitle="CEIP QUINTA PORRÚA"
+                            />
+                            <CvItem
+                                date="SEPTIEMBRE 2018 - SEPTIEMBRE 2020"
+                                title="TUTOR DE PRIMERO Y SEGUNDO Y PROFESOR DE INGLÉS"
+                                subtitle="COLEGIO TORREVELO-PEÑALABRA"
+                            />
+                            <CvItem
+                                date="SEPTIEMBRE 2017 - AGOSTO 2018"
+                                title="PROFESOR DE EDUCACIÓN FÍSICA BILINGUE E INGLÉS"
+                                subtitle="COLEGIO SAN JOSÉ DE REINOSA"
+                            />
+                            <CvItem
+                                date="AGOSTO 2014 - JULIO 2017"
+                                title="PROFESOR DE CIENCIAS Y MATEMÁTICAS"
+                                subtitle="HOUSTON INDEPENDENT SCHOOL DISTRICT (SHEARN ELEM.)"
+                                description="Trabajé tres años de los cuales los dos últimos fui evaluado 'Highly Effective Teacher'."
+                            />
+                            <CvItem
+                                date="OCTUBRE 2013 - JULIO 2014"
+                                title="TUTOR DE TERCERO Y PROFESOR DE INGLÉS"
+                                subtitle="COLEGIO CASTROVERDE"
+                            />
+                            <CvItem
+                                date="SEPTIEMBRE 2012 - AGOSTO 2013"
+                                title="PROFESOR DE EDUCACIÓN FÍSICA BILINGÜE Y CIENCIAS SOCIALES Y NATURALES BILINGÜES"
+                                subtitle="COLEGIO ESCLAVAS DEL SAGRADO CORAZÓN DE JESÚS, SANTANDER"
+                            />
+                            <CvItem
+                                date="SEPTIEMBRE 2010 - AGOSTO 2012"
+                                title="DIRECTOR DE LA ESCUELA MUNICIPAL DE HOCKEY DE SANTANDER"
+                                subtitle="INSTITUTO MUNICIPAL DE DEPORTES DE SANTANDER"
+                            />
+                        </CvSection>
+
+                        <CvSection title="Formación">
+                            <CvItem
+                                date="MARZO 2023"
+                                title="MBA (MASTER OF BUSSINESS ADMINISTRATION)"
+                                subtitle="VALENCIA INTERNATIONAL UNIVERSITY"
+                                description="Premio al mejor expediente de todos los masters de la facultad de ciencias sociales de la VIU."
+                            />
+                            <CvItem
+                                date="JUNIO 2010"
+                                title="MAGISTERIO DE PRIMARIA, EDUCACIÓN FÍSICA Y LENGUA EXTRANJERA INGLÉS"
+                                subtitle="UNIVERSIDAD DE CANTABRIA"
+                                description="Tres especialidades y nivel perfectamente bilingüe de inglés tras siete años viviendo y trabajando en Estados Unidos."
+                            />
+                        </CvSection>
+                        <CvSection title="Habilidades">
+                            <ul className="list-disc list-inside space-y-1">
+                                <li>Gestión y liderazgo</li>
+                                <li>Aprendizaje rápido y resolución de problemas</li>
+                                <li>Hablante nativo de español</li>
+                                <li>Facilidad para comunicarse y trabajar en equipo</li>
+                                <li>Adaptable y flexible</li>
+                                <li>Hablante perfectamente bilingüe de inglés</li>
+                            </ul>
+                        </CvSection>
+                        
+                        <CvSection title="Otras Actividades">
+                            <p>
+                                He hecho voluntariado y he trabajado para Cruz Roja Española, formando parte del ERIE (Equipo de Respuesta instantánea a Emergencias). También he estado involucrado en el mundo del deporte como deportista (hockey, salvamento, triatlón) y como gestor/administrador.
+                            </p>
+                        </CvSection>
+
+                    </div>
+                    
+                    {/* Footer Section */}
+                    <footer className="text-center text-gray-500 mt-auto pt-8">
+                        <p>&copy; 2025 Mi Proyecto Web. Todos los derechos reservados.</p>
+                    </footer>
+                </div>
+            );
+        };
+
+        // Renderiza el componente principal en la página
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
