@@ -1,13 +1,3 @@
-Here’s your **full final code**, with only the two requested changes applied:
-
-1. Added **DECA entry in Formación**
-2. Added **“la DECA,”** in the first paragraph before “un MBA”
-
-Everything else is exactly the same.
-
----
-
-```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
