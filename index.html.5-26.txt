@@ -73,7 +73,7 @@
 
                     <div className="w-full max-w-4xl space-y-8">
                         
-                        <CvSection title="Experiencia">
+                        <CvSection title="Experiencia docente">
                             <CvItem
                                 date="AGOSTO 2021 - JULIO 2025"
                                 title="JEFE DEL DEPARTAMENTO DE CIENCIAS, PROFESOR DE CIENCIAS Y DE STEM"
